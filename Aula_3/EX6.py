@@ -1,5 +1,5 @@
 # Implemente um programa para calcular o fatorial de um número
-numero = int(input("insira um número inteiro"))0.5
+numero = int(input("insira um número inteiro: "))
 fatorial = 1
 if numero < 0:
     print("Não existe fatorial de números negativos")

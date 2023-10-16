@@ -9,7 +9,7 @@ menor_idade = 998
 nome_da_menor = 0
 numero_cc_menor = 0
 while idade != 999:
-    idade = int(input("Qual sua idade?"))
+    idade = int(input("Qual sua idade? Caso queira sair prima \"999\""))
     if idade == 999:
         break
     nome = input("Qual seu nome?")

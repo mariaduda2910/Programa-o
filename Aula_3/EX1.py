@@ -5,6 +5,7 @@ if numero > 1:
     for i in range(2, numero):
         if (numero % i) == 0:
             print(" Não é um número primo")
+            break
     else:
         print(numero, "é primo")
 else:
