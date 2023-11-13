@@ -1,9 +1,13 @@
 # Implemente um programa que tenha uma função que leia o nome do utilizador (ex. João
 # Miguel Rodrigues) e coloque o apelido em primeiro lugar seguida de uma virgula (ex.
 # Rodrigues, João Miguel)
-def LerNome(nome):
+def InverterNome(nome):
     nome_completo = nome.split()
-    print(nome_completo)
-    print(nome_completo[-1], ",", nome_completo[0])
+    nome_temp = nome_completo[-1] + ", "
+    for elemento in nome_completo[:-1]:
+        nome_temp += elemento + " "
+    return nome_temp
+
 nome = input("Qual seu nome completo?")
-LerNome(nome)
+nome_invertido = InverterNome(nome)
+print(nome_invertido)

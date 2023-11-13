@@ -114,7 +114,7 @@ for jogadas in range(1, 10):
 
 
     print(jogadas)
-if empate >= 9:
+if jogadas >= 9:
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
           "\nParabéns aos jogadores, o jogo foi empatado!!!Talvez na próxima tentativa\n"
           "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")

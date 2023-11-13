@@ -9,7 +9,7 @@ def ValoresInteiros():
     return lista
 
 
-def Subtrair():
+def Subtrair(valores):
     maximo = max(valores)
     minimo = min(valores)
     return maximo - minimo
