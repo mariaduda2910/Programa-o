@@ -1,50 +1,43 @@
-def mostrar_tabuleiro():
-    tabuleiro = [["", "", "", "", "", "", ""], ["", "", "", "", "", "", ""], ["", "", "", "", "", "", ""],
-                 ["", "", "", "", "", "", ""], ["", "", "", "", "", "", ""], ["", "", "", "", "", "", ""],
-                 ["", "", "", "", "", "", ""]]
-    print("_=_=_=_=_=_=_=_=_=_=_=_=\n |0 |1 |2 |3 |4 |5 |6 |")
-    print(" | {0} | {1} | {2} | {3} | {4} | {5} | {6} |".format((tabuleiro[0][0]),
-                                                                                          (tabuleiro[1][0]),
-                                                                                          (tabuleiro[2][0]),
-                                                                                          (tabuleiro[3][0]),
-                                                                                          (tabuleiro[4][0]),
-                                                                                          (tabuleiro[5][0]),
-                                                                                          (tabuleiro[6][0])))
-    print(" | {0} | {1} | {2} | {3} | {4} | {5} | {6} |".format((tabuleiro[0][1]),
-                                                                (tabuleiro[1][1]),
-                                                                (tabuleiro[2][1]),
-                                                                (tabuleiro[3][1]),
-                                                                (tabuleiro[4][1]),
-                                                                (tabuleiro[5][1]),
-                                                                (tabuleiro[6][1])))
-    print(" | {0} | {1} | {2} | {3} | {4} | {5} | {6} |".format((tabuleiro[0][1]),
-                                                                (tabuleiro[1][2]),
-                                                                (tabuleiro[2][2]),
-                                                                (tabuleiro[3][2]),
-                                                                (tabuleiro[4][2]),
-                                                                (tabuleiro[5][2]),
-                                                                (tabuleiro[6][2])))
-    print(" | {0} | {1} | {2} | {3} | {4} | {5} | {6} |".format((tabuleiro[0][1]),
-                                                                (tabuleiro[1][3]),
-                                                                (tabuleiro[2][3]),
-                                                                (tabuleiro[3][3]),
-                                                                (tabuleiro[4][3]),
-                                                                (tabuleiro[5][3]),
-                                                                (tabuleiro[6][3])))
-    print(" | {0} | {1} | {2} | {3} | {4} | {5} | {6} |".format((tabuleiro[0][1]),
-                                                                (tabuleiro[1][4]),
-                                                                (tabuleiro[2][4]),
-                                                                (tabuleiro[3][4]),
-                                                                (tabuleiro[4][4]),
-                                                                (tabuleiro[5][4]),
-                                                                (tabuleiro[6][4])))
-    print(" | {0} | {1} | {2} | {3} | {4} | {5} | {6} |\n_=_=_=_=_=_=_=_=_=_=_=_=".format((tabuleiro[0][1]),
-                                                                                          (tabuleiro[1][5]),
-                                                                                          (tabuleiro[2][5]),
-                                                                                          (tabuleiro[3][5]),
-                                                                                          (tabuleiro[4][5]),
-                                                                                          (tabuleiro[5][5]),
-                                                                                          (tabuleiro[6][5])))
+from random import *
+
+jogadores = ["amarelo", "azul", "verde", "vermelho", "branco"]
+tabuleiro = list(range(1, 64))
+amarelo = 0
+azul = 0
+verde = 0
+vermelho = 0
+branco = 0
 
 
-mostrar_tabuleiro()
+def JogarDados():
+    dados_1 = randint(1, 7)
+    dados_2 = randint(1, 7)
+    jogada = dados_2 + dados_1
+    return int(jogada)
+
+while True:
+    for i in range(len(jogadores)):
+        jogadores_dados = int(input(f"Vamos la jogador {jogadores[i]}, jogue os dados: Pressione 1 para jogar os dados. "))
+        if jogadores_dados == 1:
+            for i in range(6):
+                jogar_dados = JogarDados()
+                print(f"Boa!!! O número do dado foi {jogar_dados}")
+                jogada = jogar_dados - 1
+                if type(tabuleiro[jogada]) == int:
+                    tabuleiro[jogada] = jogadores[i]
+                else:
+                    tabuleiro[jogada] = jogadores[i], tabuleiro[jogada]
+                print(tabuleiro)
+        try:
+            index = tabuleiro.index(jogadores)
+            jogador_removido = jogadores
+            tabuleiro.remove(jogador_removido)
+            tabuleiro[index] = index + 1
+            jogo = JogarDados()
+            print("dados", jogo)
+            jogas_posteriores = index + jogo
+            print(jogas_posteriores)
+            tabuleiro[jogas_posteriores] = jogadores
+            print(tabuleiro)
+        except ValueError:
+            print("erro")
